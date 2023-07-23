@@ -4,9 +4,9 @@ import contactController from "../../controllers/contact-controller.js"
 
 import validateBody from "../../decorators/validateBody.js"
 
-import contactAddChema from "../../schemas/schemas.js"
+import contactsSchemas from "../../schemas/schemas.js"
 
-
+import isValidId from "../../middlewares/isValidId.js"
 
 const router = express.Router()
 
@@ -14,13 +14,15 @@ const router = express.Router()
 
 router.get('/', contactController.getAll )
 
-router.get('/:contactId', contactController.getById)
+router.get('/:contactId',isValidId, contactController.getById)
 
-router.post('/',validateBody(contactAddChema),contactController.add)
+router.post('/',validateBody(contactsSchemas.contactAddChema),contactController.add)
 
-router.delete('/:contactId',contactController.deleteById )
+router.delete('/:contactId',isValidId,contactController.deleteById )
 
-router.put('/:contactId',validateBody(contactAddChema), contactController.updateById)
+router.put('/:contactId',isValidId,validateBody(contactsSchemas.contactAddChema), contactController.updateById)
+
+router.patch('/:contactId/favorite',isValidId,validateBody(contactsSchemas.contactUpdateFavoriteSchema), contactController.updateFavorite)
 
 export default router
  
