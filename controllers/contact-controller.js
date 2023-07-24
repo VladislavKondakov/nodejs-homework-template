@@ -1,6 +1,6 @@
-import Contact from "../models/contact.js";
+import {Contact} from "../models/index.js";
 
-import HttpError from "../helpers/HttpError.js";
+import {HttpError} from "../helpers/index.js";
 
 import { ctrlWrapper } from "../decorators/index.js";
 

@@ -1,12 +1,12 @@
 import express from "express"
 
-import contactController from "../../controllers/contact-controller.js"
+import {contactController} from "../../controllers/index.js"
 
 import validateBody from "../../decorators/validateBody.js"
 
 import contactsSchemas from "../../schemas/schemas.js"
 
-import isValidId from "../../middlewares/isValidId.js"
+import {isValidId} from "../../middlewares/index.js"
 
 const router = express.Router()
 
