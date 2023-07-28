@@ -1,6 +1,6 @@
 import Joi from "joi"
 
- const contactAddChema = Joi.object({
+ const contactAddSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().required(),
   phone: Joi.string().required(),
@@ -14,6 +14,6 @@ const contactUpdateFavoriteSchema = Joi.object({
  })
 
 export default {
-    contactAddChema,
+    contactAddSchema,
     contactUpdateFavoriteSchema,
 } 
