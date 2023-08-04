@@ -17,4 +17,3 @@ mongoose.connect(DB_HOST)
 .catch(error => console.log(error.message))
   
 
-//  gWiaXQd30eVA5Vex

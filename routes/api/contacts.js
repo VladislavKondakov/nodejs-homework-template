@@ -6,7 +6,7 @@ import validateBody from "../../decorators/validateBody.js"
 
 import contactsSchemas from "../../schemas/schemas.js"
 
-import {isValidId,authenticate} from "../../middlewares/index.js"
+import {isValidId,authenticate,upload} from "../../middlewares/index.js"
 
 const router = express.Router()
 
@@ -16,7 +16,7 @@ router.get('/', contactController.getAll )
 
 router.get('/:contactId',authenticate,isValidId, contactController.getById)
 
-router.post('/',validateBody(contactsSchemas.contactAddSchema),contactController.add)
+router.post('/',upload.single("avatar"),validateBody(contactsSchemas.contactAddSchema),contactController.add)
 
 router.delete('/:contactId',isValidId,contactController.deleteById )
 
