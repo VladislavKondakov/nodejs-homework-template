@@ -17,7 +17,16 @@ const userShema = new Schema({
     enum: ["starter", "pro", "business"],
     default: "starter"
   },
-  token: String
+  token: String,
+  verify: {
+    type: Boolean,
+    default: false,
+  },
+  verificationToken: {
+    type: String,
+    
+  },
+  
 })
 
 userShema.pre("findOneAndUpdate", handleUpdateValidate)
